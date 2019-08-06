@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    {#include "삽입페이지, or ["",""...] 페이지가 없어도 오류를 발생시키지 
+    않으려면, ignore missing표시 #}
+ {% include ["common/head.html",'b.html','c.html'] ignore missing %} <!--백업을 위해 여러가지 놓기-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+         {% include "common/navi.html"%}
+         {% include "sub/eplList_sub.html"%}
+        </div>
+        <!-- /#wrapper -->
+        {% include "common/foot.html" ignore missing%}
+
+
+    <!--foot에 제이쿼리파일이 있으니깐  스크립트가 뒤에 들어가야함-->
+        <script> 
+                //DOM(Document Object Model) 조작 - html을 객체로 띄워서 조작 
+                //input 태그를 찾아서 엔터 이벤트를 붙인다 -> search() 호출
+             
+                //자바 스크립트에서 특정 요소에게 이벤트를 붙이는 방법 .on('이벤트명'); 정의/등록
+             //이 이벤트명, 이벤트가 발생하면 바로 콜백함수가 발생되어 일해!
+             $('#searchKeyword').on('keypress',function(evt){
+                console.log(evt.keyCode);
+             });
+            
+            function search(){
+                //console.log("hi"); - 이벤트 확인
+                //입력 내용을 획득해야함
+                var inputValue=$('#searchKeyword').val();//val - 값을 뽑는 함수
+               // console.log(inputValue);
+                $('b').empty();//b 태그 내부에 덮어쓴다(지우고 추가 한다)
+                $('b').append(inputValue);
+                searchNet(inputValue);
+            } 
+            
+            
+            function searchNet(inputValue)
+            {
+                //post 통신 -> ajax 기술 이용-> 현재 화면은 그대로 존재 ->뒤에서 통신
+                //data :'keyword=검색어' ex) 'keyword=검색어&name=xxx&agep=10...'
+                //통신이 성공하면 json 객체를 생성하고 이 결과를 success에 연결된 함수를
+                //호출하면서 인자를 전달함
+                $.post({
+                    url :'{{ url_for("eplbp.eplList") }}',
+                    data:'m='+$('#searchKeyword').val(), //키 값을 설정 :키 값을 이용헤 불러옴
+                    dataType:'json', //type은 여러가지지만 주로 json 사용 
+                    success : function(resData){
+                        searchResultShow(resData); //임시 검색 결과 포함
+                       // $('#searchKeyword').val('');//입력창 비우기
+                       // $('b').append("<span style='color:red;'>->"+resData.name+"</span>")
+                    }, 
+                    error: function(err){
+                        console.log('실패',err);
+                    }
+                });
+            
+            }
+            function searchResultShow( data )
+            {  //data가 들어오면, 데이터를 획득하여 html화면에 동적으로 표현
+                 //$.each(배열,콜백함수)는 배열(리스트) 데이터를 반복적으로 처리할 때 사용
+                $('#ResultShowBase').empty();
+                $.each(data,(idx,item)=>{
+                  //console.log(idx,item);
+                  console.log(item.rank,item.name);
+                  var html=`<tr>
+                      <td>${item.rank}</td>
+                      <td>${item.name}</td>
+                      </tr>`;
+                      //``=> 자바스크립트 포멧팅
+                  $('#ResultShowBase').append(html);
+                //자식 추가할 때마다
+                  $('#ResultShowBase>div:last').on('click',()=>{
+                  document.location.href='/info/'+item.name;
+                  });
+                });
+                // 데코레이션 CSS 적용 - 의사결정 셀렉터 =>대상군:odd or ever eq(),gt(),first,last 
+               // $('#ResultShowBase>div:odd ').css('background-color','lightgreen');
+                //$('#ResultShowBase>div:last ').css('background-color','gray');
+                //막내만 그레이로 배경색
+            }
+            </script>
+</body>
+
+</html>

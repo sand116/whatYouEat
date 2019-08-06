@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>{{title}}</title>
+
+<!--jqeury 설치 완료! 문서밖의 자바스크립트 라이브러리를 가져오기 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    //문서(html)가 모두 메모리에 로드 되었다
+    //->브라우저가 화면에 결과물을 보이게 하는 시점->화면이 보이기 직전
+    // jquery selector -> $("css selector") -요소를 한번에 찾는다 
+    //$('#joinForm'); 과 document.queryselector('#joinForm');는 같아서 jquery가 이를 바꿔줌
+    
+    $(document).ready(function(){
+        // $()요소를 찾아라
+        // 문서가 준비되면 함수를 인자로 보낼테니 호출해달라
+        //호출되면 그 시점을 나는 문서를 조작할 수 있는 타이밍으로 보겠다
+        alert("문서조작 시작");
+        $('#joinForm').on('submit',function(e){
+            e.preventDefault();//이벤트 막기
+            console.log("전송 요청");
+            //ajax
+        });
+    });
+
+
+</script>
+</head>
+<body>
+  <fieldset>
+      <form id='joinForm'>
+         <input type='text' name='uid' placeholder="아이디" required/>
+         <br/>
+         <input type='password' name='uid' placeholder="비밀번호" required/>
+         <br/>
+         <input type='text' name='uid' placeholder="이름" required/>
+         <br/>
+         <input type='submit' value='가입'/>
+      </form>
+  </fieldset>
+</body>
+    <!-- <script>
+        //form 태그의 전송 요청을 인터셉트 하겠다 
+        var obj=document.querySelector('#joinForm')
+        console.log(obj);
+    </script> -->
+</html>

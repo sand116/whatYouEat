@@ -1,0 +1,54 @@
+-- 리눅스에 nginx + flask 연동하여 서비스 운영하기
+-----------------------------------------------------
+-- ubuntu에서 설치하는 명령 >> apt-get
+-- 루트 권한 획득
+>> sudo su
+-- 리눅스 설치 명령 최신으로 업데이트
+>> apt-get update
+-- python, nginx, python-pip, gunicorn 등 필요한 모듈 설치
+>> apt-get install -y python nginx python-pip gunicorn
+-- 프로젝트 업로드 (파일질라로 업로드)
+>> cd ..
+>> mkdir www
+>> cd www
+-- flask 설치
+>> pip install flask
+-- 파일 생성
+>> vim run.py
+>> i
+>> [esc] 키
+>> [shift] + [:] 키
+>> wq
+
+-- 프로젝트 이동 vi
+
+>> mkdir server 파일만들기
+>> mv파일이동 run.py ./server/run.py
+---------------------
+현재 위치
+
+/home/server/run.py
+
+
+
+-- nginx 세팅
+>> /etc/init.d/nginx start
+>> rm /etc/nginx/sites-enabled/default
+>> touch /etc/nginx/sites-available/server
+>> ln -s /etc/nginx/sites-available/server /etc/nginx/sites-enabled/server
+>> vim /etc/nginx/sites-enabled/server
+
+-- 내[O]pen Read
+server {
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+--------------
+-- 서버 재가동
+>> /etc/init.d/nginx restart
+-- 서비스 가동
+>> gunicorn --bind 0.0.0.0:5000 run:app

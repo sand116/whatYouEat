@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="button" onclick="alert('hellp world')" value="hello world"/>
+onclick을 html 이지만
+onclick 값은 버튼을 눌렀을때의 동작 -자바스크립트라고 내정 되어 있음
+-html라는 정보에 제어를 담당하는 javascript가 같이 있다는 것은 짬뽕 ->유지,보수가 쉽지 않음
+
+<object모델>
+자바스크립트를 이용해서 JSC/BOM/DOM 브라우저 제어 가능
+- 웹 브라우저들의 구성요소들은 하나하나가 객체화되어 있다. 자바스크립트로 이 객체를 제어해서 웹 브라우저를
+제어할 수 있게 된다. 이 객체들은 서로 계층적인 관계로 구조화되어 있다.
+
+-->브라우저는 각각의 태그마다 객체화 시켜놓음. -> 객체를 제어 가능 즉, 객체의 태그를 제어를
+<img src=""/>
+var imgs=document.getElementsByTagName("img"); 이미지 태그를 가지는 요소들을 모두 호출해서 리턴해라.
+imgs ->대괄호로 나옴 [<img src=""/>]
+imgs[0] ->이미지 태그 가져올 수 있음 <img src=""/>
+img[0].style.width='300px';
+-->이것이 바로 객체화
+
+
+BOM - BROWSER OBJECT MODEL - 웹 브라우저를 제어하기 위해서 브라우저 제공하는 객체들
+브라우저를 제어하기 위한 기능들 공부하면서 구체적인 경험들을 얻게 되면서 완성할 수 있음
+
+window는 가장 상위 개체,전역개체
+단순히 내장함수 alert은 window.alert 인데 생락된것, 즉 모든 객체들은 window의 메서드 혹은 속성
+
+<사용자와 커뮤니케이션 하는 방법>
+사용자가 입력한 정보를 받아서 처리하는 간편한 수단
+alert
+<input type='button' value='alert' onclick='alertfnc();'/>
+<script>
+    function alertfnc(){
+        alert(1);
+        alert(2);
+        alert(3);
+        
+    }
+</script>
+confirm
+<input type='button' value='confirm' onclick='func_confirm()'/>
+<script>
+  function func_confirm(){
+    if(confirm('ok?')){
+        alert('ok');}
+    else {
+        alert("cancel");
+    }
+  }  
+</script>
+
+
+<input type='button' value='confirm' onclick='func_prompt()'/>
+<script>
+        function func_prompt(){
+          if(prompt('id?')==='egoing'){
+              alert('welcome');}
+          else {
+              alert("fail");
+          }
+        }  
+      </script>
+conform('ok?')
+->확인 true 리턴
+->취소 false 리턴
+confirm
+하위 3개
+DOM
+javascript
+BOM
+
+
+location 객체
+- location 객체는 문서의 주소와 관련된 객체로 winodw 객체의 프로퍼티이다. 이 객체를 이용해서 윈도우의
+문서url을 변경할 수 있고, 문서의 위치와 관련된 다양한 정보를 얻을 수 있다.
+console.log(location.href);->현재 url이 텍스트로 출력
+
+URL PARSING
+
+
+</body>
+
+</html>

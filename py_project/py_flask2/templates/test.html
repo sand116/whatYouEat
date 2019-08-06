@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--1234라는 텍스트를 5678로 변경하시오 : 화면에 보인 이후에-->
+<div>1234</div> 
+<!--인터프리터 언어기때문에 차례대로 메모리에 적재-->
+
+<script>
+//div를 찾아서 자식의 값을 바꾼다
+$('div').empty();//자식을 비운다 -> 1234삭제
+$('div').append('5678');
+</script>
+</body>
+
+</html>
+<!--html이 메모리에 다 적재되고 나서 js 가 조작해야하는데
+html은 인터프리터 언어이다보니 한줄씩 메모리에 적재
+그래서 js는 맨 마지막에 써저야하는데 , 이게 싫다면
+위에어 document사용 
+-->

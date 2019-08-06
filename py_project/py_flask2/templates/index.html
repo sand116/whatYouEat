@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<!--메타 데이터  문서 (document, html파일)-->
+<!--마크업 랭귀지는 (xxxMl)는 엘리먼트로 구성
+엘리먼트=시작태그(속성을 가짐)+콘텐츠+종료태그-->
+
+{# ->이 주석은 html에 안나옴 javascript : 클라이언트에서의 역할 :이벤트 처리 담당,사용자와 상호작용 담당
+ 동적으로 화면을 변경(DHTML)->문서 조작 담당 => 자바스크립트는 HTML이 없으면
+ 아무런 의미가 없다.
+#}   
+
+<title>{{title}}</title>
+<!--external js : 문서 밖-->    
+    <script src='/static/js/main.js'></script>
+<!--internal js-- : 문서 안-->    
+    <script>
+            console.log('1'); //콘솔에 출력해라:console.log(값)
+            //자바 스크립트 함수
+            function call()
+            {//현재문서의 위치를 /join으로 이동하라 -> 페이지를 변경
+                console.log('2');
+                document.location.href='/join';
+                //자바스크립트의 기능!- 라우팅 !
+            }
+    </script>
+</head>
+<body>
+    <!--inline js : 태그 안-->
+    <button onclick="call();">호출</button>
+    <script>
+        console.log('4');
+    </script>
+</body>
+</html>
+{# html 속성 값 넣어줄때는 다 문자열로 값 넣어주기 = '' 로 넣어주는 경우- 문자열이라 해석 가능#}

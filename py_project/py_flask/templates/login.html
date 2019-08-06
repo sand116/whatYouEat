@@ -1,0 +1,41 @@
+<!-- HTMl : hyper text markup language 브라우저에 쓴는 것이 주류-->
+
+<!DOCTYPE html> <!--브라우저는 이 표식을 보고 이문서가 html5 규격을 따르는 문서라고 인식한다.-->
+<html>
+    <head>
+        <title>{{name }}</title>
+
+        <!--html 문서의 메타 정보(문서를 기술하는 정보 - 문서의 타입 등)를 표현하는 위치-->
+      
+    </head>
+    <body>
+        <img src='/static/img/logo.png' height='100px',/>
+            <h2>{{name}}</h2>
+        <!--눈에 보이는 모든 부분-->
+        <!--사용자로부터 아이디와 비번 입력받아라
+         로그인 버튼을 누르면 로그인 처리하는 페이지로
+         아이디와 비번을 가지고 요청한다!!!
+         ->해당 페이지는 아이디 비번 가지고 디비에 쿼리 
+         ->쿼리 결과 회원이면 ->정상 처리 (서비스 이동)
+         ->회원 아니면 메시지 처리(가입,재로그인 유도)-->
+
+         <!-- <a href='/login?uid=test&upw=1234'>
+        페이지이동 링크</a> html에서 페이지이동 링크는 a태크 -->
+         <fieldset>
+             <!--form tag 담당 : 데이터를 전송한다-->
+            <form action='/login' method='post'> <!--주소(url) 방식(method) 써줌
+             file:///C:/login?uid=pppppp&upw=111111111111111 요청 주소값 -->
+                 <!--인풋으로 입력 받음 입력의 type 정의 name  :데이터 하나의 키 값을 의미한다 uid=xx-->
+            <!--action: form 데이터가 전송되는 url-->
+                <input type='text' name='uid'placeholder="아이디" autofocus required/> 
+                 <!--단독 태그 name은 내부적으로 가는 값-->
+                <br/>
+                <input type='password' name='upw'placeholder="비밀번호" required/> 
+                <br/>
+                <input type='submit' value='로그인'/> 
+                <!-- submit - <button>로그인</button> - 데이터 쏘는 것-->
+            </form>
+        </fieldset>
+         
+    </body>
+</html>

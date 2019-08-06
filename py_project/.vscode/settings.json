@@ -1,0 +1,7 @@
+{
+    "python.linting.enabled": false,
+    "editor.fontSize": 9,
+    "python.pythonPath": "C:\\Users\\박진경\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "on",
+}

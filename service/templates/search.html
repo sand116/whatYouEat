@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>먹어도 돼?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/changhun/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/changhun/css/shop-homepage.css" rel="stylesheet">
+
+    <style>
+      /* 상단 네비게이션바 */
+      .bg-dark {
+        background-color: darkgray !important;
+        border-bottom:darkgray !important;
+        margin-top: -60px;
+        margin-bottom: -90px;
+        height: 200px;
+        position: relative;
+      }
+      .navbar-brand {
+        color: red !important;
+        position: relative;
+        top: -45px !important;
+        left: 45px;
+      }
+      a.nav-link {
+        color: red !important;
+        position: relative;
+        top: -50px;
+      }
+      .navbar-expand-lg {
+        padding-top: 100px;
+      }
+      div.row {
+        padding-top: 40px;
+      }
+      div.container {
+        padding-top: 10px;
+      }
+      a.nav-link {
+        color: red;
+      }
+      /* 검색창 */
+
+      .input_text {
+        display: inline-block;
+        width: 500px; height: 34px;
+        border: 3px solid red;
+        background: white;
+        margin: 6px 0 0 9px;
+        line-height: 21px;
+        font-weight: bold;
+        font-size: 16px;
+        outline: none;
+        position: relative;
+        top: -50px;
+        left: 170px;
+      }
+      .sch_smit {
+        width: 54px; height: 34px;
+        margin: 0; border: 0;
+        vertical-align: top;
+        background: red;
+        color: white;
+        font-weight: bold;
+        border-radius: 1px;
+        cursor: pointer;
+        position: relative;
+        top: -47px;
+        left: 170px;
+      }
+      .sch_smit:hover {
+        background: #56C82C;
+      }
+
+      /* 좌측 카테고리 영역 */
+      div.col-lg-3 {
+        padding-top: 60px;
+      }
+      h1.my-4 {
+        color: red;
+        text-align: center;
+        width: 180px;
+      }
+      a.list-group-item {
+        color: black;
+        font-size: 15px;
+        text-align: center;
+        padding-top: 15px;
+        width: 180px;
+        height: 110px;
+      }
+
+      /* 푸드 리스트 영역 */
+      div.card-body {
+        height: 130px;
+        text-align: left;
+      }
+      a {
+        color: red;
+      }
+      p.card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; 
+        width: 100px;
+        height: 20px;
+      }
+
+      /* 하단 footer영역 */
+      footer.py-5 {
+        padding-top: 80px !important; 
+        padding-bottom: -10px !important;
+        margin-top: 10px !important;
+      }
+    </style>
+    <script>
+      function search() {
+        if(form1.fname.value == '') {
+          alert('검색어를 꼭 입력하세요!!!');
+          form1.fname.focus();
+          return false;
+        }
+        form1.submit();
+      }//
+    </script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <img src="../static/changhun/img/caneat.png" style="width: 100px; height: 100px;" class="navbar-brand" href="#"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <form action="/search" method="POST" name="form1">
+          <input type="text" class="input_text" name="fname">
+          <button onclick='search()' type="button" class="sch_smit">검색</button>
+          </form>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            <li class="nav-item">
+              <a class="nav-link" href="#">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">회원가입</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h1 class="my-4">Category</h1>
+          <div class="list-group">
+            
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/user.png" 
+                   style="width: 50px; height: 50px;"/>
+              <br/>
+              마이페이지</a>
+
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/dashboard.png" 
+                    style="width: 50px; height: 50px;"/>
+              <br/>
+              대시보드</a>
+
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/icecream.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              아이스크림</a>
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/snack.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              스낵</a>
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/instantramen.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              라면</a>
+
+          </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+        <!-- 검색하여 하나씩 모두 보여줌.-->
+        {% for r in rows: %}
+        <a href="food/{{r.code}}">
+            {{r.f_name}}<br>
+        </a>
+        {% endfor %}
+       
+
+          </div>
+          <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 먹어도 돼?</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/changhun/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/changhun/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

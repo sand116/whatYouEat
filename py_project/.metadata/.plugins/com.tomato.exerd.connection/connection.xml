@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+  <connection>
+    <productId>com.tomato.db.mysql</productId>
+    <productName>MySQL 5.1 ~ 5.7</productName>
+    <name>data</name>
+    <driverJar />
+    <driverClass />
+    <url>jdbc:mysql://&lt;host&gt;:3306/&lt;databaseName&gt;?characterEncoding=utf8</url>
+    <properties>
+      <user />
+      <port>3306</port>
+      <password />
+      <characterEncoding>utf8</characterEncoding>
+      <host />
+      <databaseName />
+    </properties>
+    <extendedProperties />
+  </connection>
+</database>
+

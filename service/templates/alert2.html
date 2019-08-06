@@ -1,0 +1,10 @@
+<script>
+    alert("{{ msg }}");    // 팝업 띄우기
+        // 이전 페이지로 돌아가기(에러케이스)
+    {% if url : %} //아이디가 틀리면 url을 f.10에서 부여하지 않아 else로 들어가서 백래쉬...
+        document.location.href= '{{url}}'; // 다른페이지 이동
+    {% else %}
+        history.back(); //이전 페이지 이동
+        // 다른 페이지로 이동하기(정상케이스)
+    {% endif %}
+</script>

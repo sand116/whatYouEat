@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link href="/static/sign/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/static/sign/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+    <!-- Custom style -->
+    <link rel="stylesheet" href="/static/sign/css/style.css" media="screen" title="no title" charset="utf-8">
+
+  </head>
+  <body>
+      <article class="container">
+        <div class="page-header">
+          <h1>회원가입 </h1>
+        </div>
+        <div class="col-md-6 col-md-offset-3" action=''>
+          <form role="form" action='{{url_for("userbp.signup")}}' method='post'>
+            
+            <div class="form-group">
+              <label for="InputEmail">이메일 주소</label>
+              <input type="email" class="form-control" id="InputEmail" name='uid' placeholder="이메일 주소 : @형식으로 입력하세요">
+            </div>
+
+            <div class="form-group">
+              <label for="InputPassword1">비밀번호</label>
+              <input type="password" class="form-control" name='upw' id="InputPassword1" placeholder="비밀번호">
+            </div>
+            <div class="form-group" id="password" >
+              <label for="inputPasswordCheck">비밀번호 확인</label>
+              <font name="check" size="2" color="red"></font> 
+              <input type="password" class="form-control" id="inputPasswordCheck" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요">
+          </div>
+            <div class="form-group">
+              <label for="username">이름</label>
+              <input type="text" class="form-control" name='name' id="inputName" placeholder="이름을 입력해 주세요">
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-info">회원가입</button>
+              <a href='{{url_for("userbp.login")}}' class="btn btn-warning">가입취소</a>
+            </div>
+          </form>
+         
+        </div>
+        
+      </article>
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/sign/js/bootstrap.min.js"></script>
+    <script>
+       $(function(){
+         
+        $('#InputPassword1').keyup(function(){
+         $('font[name=check]').text('');
+        }); //#user_pass.keyup
+      
+        $('#inputPasswordCheck').keyup(function(){
+         if($('#InputPassword1').val()!=$('#inputPasswordCheck').val()){
+          $('font[name=check]').text('');
+          $('font[name=check]').html("암호틀림");
+         }else{
+          $('font[name=check]').text('');
+          $('font[name=check]').html("암호맞음");
+         }
+        }); //#chpass.keyup
+        
+       });
+      </script>
+  </body>
+</html>
+

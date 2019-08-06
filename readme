@@ -1,0 +1,28 @@
+------------------------------------------------------------------
+py_cmsEx: 구조개선, 요청 및 응답에 대한 사전/사후 처리
+          쿠키 도입, 디비 연결 및 종료 개선 처리
+          ,API 기능 추가(JSON기반), 블루프린트(고민)
+------------------------------------------------------------------
+
+파일업로드 : ~/bbs/upload -> get -> 폼
+            ~/bbs/upload -> post -> 등록
+            ~/bbs        -> get -> 등록된 글 리스트
+-----------------------------------------------------------------
+1) service> controller > __init__.py에 blueprint정의
+2) service> __init__.py 에  blueprint등록. 임포트해서 새로운 이름 임포트하고, 등록하나더!
+                                    app.register_blueprint(bp_epl, url_prefix='/bbs')            
+                                    bp_bbs (임포트하기)
+3) service> controller > bbs.py 생성
+   service> __init__.py에 bbs import
+   from service.controller import user, epl, bbs
+
+4) 하이디에서 테이블 생성 및 sql테스트
+                        -- 전체 게시물 가져오기
+                        select * from tbl_bbs order by id desc;
+                        -- 게시물 하나 추가하기
+                        insert into tbl_bbs (title, content, `file`, writer, regdate) 
+                        values ('제목', '내용', '/upload/img/sss.jpg', '1', now() );
+
+5) service> model> dbmgr.py 에 멤버 함수 2개(쿼리문을 사용하는 함수) 추가
+
+6)

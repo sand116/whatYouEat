@@ -1,0 +1,7 @@
+<script>
+    alert("{{ msg }}");    // 팝업 띄우기
+        // 이전 페이지로 돌아가기(에러케이스)
+    //아이디가 틀리면 url을 f.10에서 부여하지 않아 else로 들어가서 백래쉬...
+        document.location.href= '{{url_for("userbp.login")}}'; // 다른페이지 이동
+
+</script>

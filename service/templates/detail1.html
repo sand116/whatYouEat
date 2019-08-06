@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>푸드정보</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/changhun/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/changhun/css/shop-homepage.css" rel="stylesheet">
+
+    <style>
+      /* 상단 네비게이션바 */
+      .bg-dark {
+        background-color: darkgray !important;
+        border-bottom:darkgray !important;
+        margin-top: -60px;
+        margin-bottom: -90px;
+        height: 200px;
+        position: relative;
+      }
+      .navbar-brand {
+        color: red !important;
+        position: relative;
+        top: -45px !important;
+        left: 45px;
+      }
+      a.nav-link {
+        color: red !important;
+        position: relative;
+        top: -50px;
+      }
+      .navbar-expand-lg {
+        padding-top: 100px;
+      }
+      div.row {
+        padding-top: 40px;
+      }
+      div.container {
+        padding-top: 10px;
+      }
+      a.nav-link {
+        color: red;
+      }
+      /* 검색창 */
+
+      .input_text {
+        display: inline-block;
+        width: 500px; height: 34px;
+        border: 3px solid red;
+        background: white;
+        margin: 6px 0 0 9px;
+        line-height: 21px;
+        font-weight: bold;
+        font-size: 16px;
+        outline: none;
+        position: relative;
+        top: -50px;
+        left: 170px;
+      }
+      .sch_smit {
+        width: 54px; height: 34px;
+        margin: 0; border: 0;
+        vertical-align: top;
+        background: red;
+        color: white;
+        font-weight: bold;
+        border-radius: 1px;
+        cursor: pointer;
+        position: relative;
+        top: -47px;
+        left: 170px;
+      }
+      .sch_smit:hover {
+        background: #56C82C;
+      }
+
+      /* 좌측 카테고리 영역 */
+      div.col-lg-3 {
+        padding-top: 60px;
+      }
+      h1.my-4 {
+        color: red;
+        text-align: center;
+        width: 180px;
+      }
+      a.list-group-item {
+        color: black;
+        font-size: 15px;
+        text-align: center;
+        padding-top: 15px;
+        width: 180px;
+        height: 110px;
+      }
+
+      /* 푸드 리스트 영역 */
+      div.card-body {
+        height: 130px;
+        text-align: left;
+      }
+      a {
+        color: red;
+      }
+      p.card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; 
+        width: 100px;
+        height: 20px;
+      }
+
+      /* 하단 footer영역 */
+      footer.py-5 {
+        padding-top: 80px !important; 
+        padding-bottom: -10px !important;
+        margin-top: 10px !important;
+      }
+
+      /* 서빈 */
+      div.jj{
+        font-size:20px; 
+      }
+
+      td{
+        width:50%;
+      }
+
+      #first{
+        font-size:20px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <img src="../static/changhun/img/caneat.png" style="width: 100px; height: 100px;" class="navbar-brand" href="#"></a>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+          <input type="text"  class="form-control" id="inputError">
+          <button type="submit" class="btn btn-danger" >검색</button>
+          </input>
+        
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            <li class="nav-item">
+              <a class="btn btn-warning" href="#">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success" href="#">회원가입</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h1 class="btn btn-outline btn-danger">Category</h1>
+          <div class="list-group">
+            
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/user.png" 
+                   style="width: 50px; height: 50px;"/>
+              <br/>
+              마이페이지</a>
+
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/dashboard.png" 
+                    style="width: 50px; height: 50px;"/>
+              <br/>
+              대시보드</a>
+
+            <a href="{{url_for('searchbp.detail')}}" class="list-group-item">
+              <img src="../static/changhun/img/icecream.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              아이스크림</a>
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/snack.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              스낵</a>
+            <a href="#" class="list-group-item">
+              <img src="../static/changhun/img/instantramen.png" 
+                    style="width: 50px; height: 50px;" alt="마이페이지"/>
+              <br/>
+              라면</a>
+
+          </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <br/>
+          <div class="row" >
+            <div class="container" >
+              <div class="row">
+                <div class="info" style="background-image: url('http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg'); height:480px; width:100%;"> 
+                  <div style="margin-left:5%; margin-top:3%; margin-bottom:2%; font-size:27px;">식품정보</div>      
+
+                  <div style=" float:left; margin:5%; margin-right:0%; margin-top:0%; margin-bottom:2%; justify-content:center; 
+                  align-items: center; ">
+                    <img id="food_img" src="http://cdn2.bgfretail.com/bgfbrand/files/product/8801043013949.jpg" width=330 height=330 style="display: table; margin-left: auto; margin-right: auto; margin-bottom:1%;">
+                    <!--
+                    <div class="info-wrap" style="margin-bottom:3%;">
+                        <h1 style="font-size:22px; text-align:center;">농심 신라면</h1>
+                        <h1 style="font-size:22px; text-align:center;">전국민의 대표 건강식</h1>
+                    </div>
+                    -->
+                    <div style="width:330; display: table; margin-left: auto; margin-right: auto;">   
+                    </div>
+                  </div>
+
+                  <fieldset style="margin-top:5%; margin-right:5%; float:rifgt; ">
+                    <div class="prodDetail-e">
+                      <p class="tit" style="font-size: 27px; margin-left:40px;">샌)BLT비엘티샌드위치</p>
+                      <div>
+                        <img id="bar" src="http://www.pixelmagicfx.com/images/menu_bar.png" width=450 height=30 >
+                      </div>
+                      <div class="prodInfo" style="margin-left:40px;">
+                        <dl>
+                          <dt>가격</dt>
+                          <dd class="prodPrice">
+                            <p><span>2,000</span>원</p>
+                            
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>상품 설명</dt>
+                          <dd>
+                            <ul class="prodExplain">
+                              <li>베이컨,양상추,토마토 (B,L,T)가 들어간 샌드위치</li>
+                            </ul>
+                          </dd>
+                        </dl>
+                        <br/>
+                        <dl>
+                          <button type="button" class="btn btn-danger btn-circle" style="font-size:14px;">
+                            <img src="https://i.pinimg.com/originals/4c/f1/7a/4cf17a9f1cba43426100e3c45aead9fe.gif" width=20 height=20 > 좋아요
+                          </button>
+                          <button type="button" class="btn btn-warning" style="margin-left: 2%; color:white; font-size:14px;">
+                              <img src="https://thumbs.gfycat.com/PastelSpectacularAvocet-max-1mb.gif" width=20 height=20 > 오늘먹음
+                          </button>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div class="row">
+                <fieldset class="infoAll" style="height:500px; width:44%; margin-right:6%; ">
+                  <table class="table">
+                      <thead>
+                          <tr style="background-color:lightgrey; ">
+                              <th style="width:60%; font-size:22px; text-align: center;">기준 영양성분</th>
+                              <th> </th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody> 
+                          <tr>
+                              <td style="font-size: 17px;" >&nbsp;&nbsp; <strong>1회 제공량</strong> </td>
+                              <td>30 g</td>
+                              <td></td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;" >&nbsp;&nbsp;열량 </td>
+                              <td>109 kcal</td>
+                              <td></td>
+                          </tr>                           
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;나트륨 </td>
+                              <td>11 mg</td>
+                              <td>%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;탄수화물 </td>
+                              <td>11.9 g</td>
+                              <td>%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당류 </td>
+                              <td>11 g</td>
+                              <td>%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;지방 </td>
+                              <td>4.4 g</td>
+                              <td>%</td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;포화지방산 </td>
+                              <td>1.4 g</td>
+                              <td>%</td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜스지방산 </td>
+                              <td>3 g</td>
+                              <td>%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;콜레스테롤</td>
+                              <td>12.7 g</td>  
+                              <td>%</td>                        
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;단백질</td>
+                              <td>15 g</td>
+                              <td>%</td>
+                          </tr>
+                          
+                      </tbody>
+                  </table>  
+                </fieldset>
+                <fieldset class="infoMe" style="height:500px; width:44%; margin-left:6%; " >
+                  <table class="table">
+                      <thead>
+                          <tr style="background-color:lightgrey;">
+                              <th style="width:70%; font-size:22px; text-align: center;">&nbsp;&nbsp;맞춤 영양성분</th>
+                              <th> </th>
+                              <th>0000kcal </th>
+                          </tr>
+                      </thead>
+                      <tbody> 
+                          <tr>
+                              <td style="font-size: 17px;" >&nbsp;&nbsp; <strong>1회 제공량</strong> </td>
+                              <td>30 g</td>
+                              <td></td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;" >&nbsp;&nbsp;열량 </td>
+                              <td>109 kcal</td>
+                              <td></td>
+                          </tr>                           
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;나트륨 </td>
+                              <td>11 mg</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;탄수화물 </td>
+                              <td>11.9 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당류 </td>
+                              <td>11 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;지방 </td>
+                              <td>4.4 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;포화지방산 </td>
+                              <td>1.4 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜스지방산 </td>
+                              <td>3 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;콜레스테롤</td>
+                              <td>12.7 g</td>  
+                              <td style="text-align:right;">%</td>                        
+                          </tr>
+                          <tr>
+                              <td style="font-size: 17px;">&nbsp;&nbsp;단백질</td>
+                              <td>15 g</td>
+                              <td style="text-align:right;">%</td>
+                          </tr>
+                          
+                      </tbody>
+                  </table>
+                </fieldset>
+              </div>
+            </div>
+            
+          </div>
+          <!-- /.row -->
+          <br/><br/>
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <br/><br/>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 먹어도 돼?</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/changhun/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/changhun/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

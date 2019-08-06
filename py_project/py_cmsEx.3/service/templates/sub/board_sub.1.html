@@ -1,0 +1,103 @@
+<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">게시판</h1>
+        </div>
+       </div>
+        
+        <div clas="row">
+        <div class="col-lg-6">
+                <div class="panel panel-info">
+                        <div class="panel-heading">
+                            list
+                        </div>
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                 <table style='width:100%;' class='table'>
+                                    <thead>
+                                <!-- index
+                                 1. /제목/작성자/ 날짜/내용을 저장한 db 
+                                 db//board/upload에서 제목/작성자/날짜/내용 입력하면
+                                 db에 들어감 - upload 쿼리작성
+                                 2.
+                                 /bbs/ home에서 board.html 리스트를 뽑기 전에 
+                                 db에 들어간 것이 select 해서 index.제목.작성자.날짜에해당하는
+                                 것을 board=dict 형태로 다 가져오기
+                                 3. board_sub.1.html에서 진자엔진으로 for문을 돌려서
+                                  넣기
+                                 4. 페이징 하는 것 배우기
+                                -->
+                                        <tr>
+                                            <th>index</th>
+                                            <th>제목</th>
+                                            <th>작성자</th>
+                                            <th>날짜</th>
+                                        </tr>
+                                    </thead>
+                           
+                            <tbody>
+                                <tr class="success">
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr class="info">
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>4</td>
+                                    <td>John</td>
+                                    <td>Smith</td>
+
+                                </tbody>
+            
+                            <!--페이징
+                            1.select count(*) as totalCount from board
+                            -->
+                            
+                            <center>
+                            <ul class="pagination">
+                            
+                                <li class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+                                    <a href="{{'%s?page=%s'%(url_for('eplbp.eplList'),1)}}">1</a>
+                                </li>
+                                <!--class에 active 들어오면 선택됨 :현재 페이지로 설정-->
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="{{'%s?page=%s'%(url_for('eplbp.eplList'),2)}}">2</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                        <a href="{{'%s?page=%s'%(url_for('eplbp.eplList'),3)}}">3</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="{{'%s?page=%s'%(url_for('eplbp.eplList'),4)}}">4</a>
+                            </li>
+                      
+                
+                            </ul>
+                            </center>
+                            </div>
+                        <!-- /.table-responsive -->
+
+                        
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            </div>
+            <!--row-->
+        </div>
+        <!-- end -->
+ 

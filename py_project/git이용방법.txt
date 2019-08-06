@@ -1,0 +1,36 @@
+echo "# git001" >> README.md
+#첫번째 한번
+git init #깃 초기화
+git status #깃 상태를 보는 명렁어
+git add README.md # 깃 add 파일
+git status#
+->파일 README .me 추가
+git config --global user.email "sand1166@naver.com"
+git config --global user.name  "sand116"
+
+git commit -m "first commit"
+git remote add origin https://github.com/sand116/git001.git
+git push -u origin master
+
+
+#두번째부터는 -c 드라이브의  해당 폴더 도스창에서 해야함
+git add *(파일 하나는 파일명, 다 옮기고싶으면 *) #작업파일 설정
+git commit -m "xxx" #메모
+git push -u origin master
+
+
+git 사용
+flast001 폴더 생성
+
+#repository 생성  폴더올리는 과정
+git init->flask001폴더가서 git의 관리대상으로 초기화
+git add*
+git commit -m "xxx" #메모
+git remote add origin https://github.com/jingyeong/flask001.git  =>git url 가져오기
+git push -u origin master
+
+---------------------------
+폴더 받는 과정
+==>
+git clone https://github.com/jingyeong/flask001.git 
+

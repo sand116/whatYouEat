@@ -1,0 +1,30 @@
+﻿-- putty
+--putty.gen
+
+ppk 파일 
+
+-- GUI를 생성
+   -> Qt5 (라이센스 주의)
+   -> tkinter (파이썬 자체 제공)
+-- pyhton 3.6.x 이하 버전 사용
+
+-- 솔루션 배포
+   -> 제품화 하여 고객들 판매등 -> 소스가 은닉
+   -> *.py -> *.exe or *.msi or *.dmg or *.pkg
+   -> py2exe(윈도우)/py2app, cx_Freeze(맥,윈도우) 
+   -> pip install cx_Freeze
+
+-- 솔류션 패키징 과정
+1) python 설치 (3.6 이하 추천(cx_Freeze 영향))
+   시스템 path 체크가 누락되면 수동 추가
+   C:\Users\student\AppData\Local\Programs\Python\Python36-32\;
+   C:\Users\student\AppData\Local\Programs\Python\Python36-32\Scripts\;
+2) 개발 (사용한 모듈 및 프로그램 체크)
+   예를 들어 qt5에서 로그인 하고 selenium을 통해 크롤링하는 
+   프로그램이라면,
+   <-> flask 기반으로 서버제공(인증API 제공) 
+   파일명 : run.py
+   pip install selenium
+   ico : 실행파일 아이콘
+   같이 패키징되는 파일 : chromedriver.exe
+3) pip install cx_Freeze
